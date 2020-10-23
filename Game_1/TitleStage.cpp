@@ -50,7 +50,6 @@ void TitleStage::Update()
     {
         if (inputManager.prevKey[VK_LBUTTON] == 1 && inputManager.key[VK_LBUTTON] == 0)
         {
-            int a = 10;
             stageManager.MakeLoadStage();
         }
 

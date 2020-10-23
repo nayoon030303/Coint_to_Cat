@@ -11,7 +11,7 @@ public:
 	void Update() override;
 
 	ID3DXFont* font1;
-	
+	ID3DXFont* font2;
 
 	int max;
 };

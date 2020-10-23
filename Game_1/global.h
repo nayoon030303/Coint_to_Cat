@@ -54,4 +54,5 @@ extern TextureManager textureManager;
 extern InputManager inputManager;
 extern StageManager stageManager;
 extern GameStat gameStat;
-extern vector<Player> playerInfos;
+extern vector<Player> playerInfos;	//데이터 저장
+extern Player player;	//플레이어

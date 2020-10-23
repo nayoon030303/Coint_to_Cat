@@ -34,17 +34,25 @@ public:
 	void SetName(string name) { strcpy_s(this->name, name.c_str()); }
 	char* GetName() { return name; }
 
-	//hp
-	void SetHp(int hp) { this->hp = hp; }
-	int GetHp() { return hp; }
+	//kind
+	void SetKind(int kind) { this->catKind = kind; }
+	int GetKind() { return catKind; }
+
+	//day
+	void SetDay(int day) { this->day = day; }
+	int GetDay() { return day; }
+
 
 	//money
 	void SetMoney(int money) { this->money = money; }
 	int GetMoney() { return money; }
 
-	//kind
-	void SetKind(int kind) { this->catKind = kind; }
-	int GetKind() { return catKind; }
+
+	//hp
+	void SetHp(int hp) { this->hp = hp; }
+	int GetHp() { return hp; }
+
+	
 	
 	//coin1
 	void SetCoin1(int kind) { this->coin1 = coin1; }

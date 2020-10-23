@@ -35,20 +35,44 @@ LoadStage::LoadStage()
        g_strFont,              // pFaceName
        &font1);
 
+   //폰트2 생성
+   hDC = GetDC(NULL);
+   nLogPixelsY = GetDeviceCaps(hDC, LOGPIXELSY);
+   ReleaseDC(NULL, hDC);
+   fontSize = 20;
+   nHeight = -fontSize * nLogPixelsY / 72;
+   g_strFont[LF_FACESIZE];
+   wcscpy_s(g_strFont, 32, L"Arial");
+   D3DXCreateFont(g_pd3dDevice,            // D3D device
+       nHeight,               // Height
+       0,                     // Width
+       FW_BOLD,               // Weight
+       1,                     // MipLevels, 0 = autogen mipmaps
+       FALSE,                 // Italic
+       DEFAULT_CHARSET,       // CharSet
+       OUT_DEFAULT_PRECIS,    // OutputPrecision
+       DEFAULT_QUALITY,       // Quality
+       DEFAULT_PITCH | FF_DONTCARE, // PitchAndFamily
+       g_strFont,              // pFaceName
+       &font2);
+
+
+
 
 }
 
 void LoadStage::Render()
 {
+    RECT rc;
+    WCHAR text[256];
+
     //배경
 	TextureElement* element = textureManager.GetTexture(LOADSTAGE);
 	element->g_pSprite->Begin(D3DXSPRITE_ALPHABLEND);
-    RECT rc;
     rc.left = 0;
     rc.top = 0;
     rc.right = WINDOW_WIDTH;
     rc.bottom = WINDOW_HEIGHT;
-
     element->g_pSprite->Draw(element->g_Texture, &rc, nullptr, nullptr, D3DCOLOR_XRGB(255, 255, 255));
     element->g_pSprite->End();
 
@@ -57,7 +81,6 @@ void LoadStage::Render()
     rc;
     rc.left = TEXT_X;
     rc.top = 50;
-    WCHAR text[256];
      _stprintf_s<256>(text, _T("당신의 파일을 클릭해주세요"));
      font1->DrawText(nullptr, text, -1, &rc, DT_NOCLIP,
           D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
@@ -80,21 +103,39 @@ void LoadStage::Render()
      //데이터 TEXT
      for (int i = 0; i < max; i++)
      {
-         rc;
-         rc.left = LOAD_SQUARE_X+40;
-         rc.top = LOAD_SQUARE_Y * (i + 1) + 20;
+         //id
+         rc.left = LOAD_SQUARE_X + 20;
+         rc.top = LOAD_SQUARE_Y * (i + 1) + 50;
          WCHAR text[256];
-         WCHAR abc[256] = { 0, };
-         //char str[256] = "초기화는 필수";
-         MultiByteToWideChar(CP_ACP, 0, playerInfos[i].GetName(), strlen(playerInfos[i].GetName()), abc, 256);
+         int id = playerInfos[i].GetId();
+         _stprintf_s<256>(text, _T("0%d"), id);
+         font2->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
+             D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
 
-         _stprintf_s<256>(text, _T("이름:%s"), abc);
-         font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
+         //이름
+         rc.left = LOAD_SQUARE_X+80;
+         rc.top = LOAD_SQUARE_Y * (i + 1) + 50;
+         text[256];
+         WCHAR name[256] = { 0, };
+         MultiByteToWideChar(CP_ACP, 0, playerInfos[i].GetName(), strlen(playerInfos[i].GetName()), name, 256);
+         _stprintf_s<256>(text, _T("이름:%s"), name);
+         font2->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
              D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f)); 
 
      }
-     for (int i = 0; i < MAX_INFO - max; i++)
+     //데이터 x
+     for (int i = 1; i <= MAX_INFO - max; i++)
      {
+        
+         rc.left = LOAD_SQUARE_X + 20;
+         rc.top = LOAD_SQUARE_Y * (i + max) + 50;
+         WCHAR text[256];
+         WCHAR test[256] = { 0, };
+         char noData[256] = "데이터가 없습니다";
+         MultiByteToWideChar(CP_ACP, 0,noData, strlen(noData), test, 256);
+         _stprintf_s<256>(text, _T("%s"), test);
+         font2->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
+             D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
 
      }
 }
@@ -102,6 +143,47 @@ void LoadStage::Render()
 void LoadStage::Update()
 {
      
+    //선택한 데이터 불러오기
+    for (int i = 0; i < max; i++)
+    {
+        if (pt.x > LOAD_SQUARE_X && pt.x<LOAD_SQUARE_X + LOAD_SQUARE_WIDTH
+            && pt.y>(LOAD_SQUARE_Y * (i + 1)) && pt.y < (LOAD_SQUARE_Y * (i + 1)) + LOAD_SQUARE_HEIGHT)
+        {
+            if (inputManager.prevKey[VK_LBUTTON] == 1 && inputManager.key[VK_LBUTTON] == 0)
+            {
+                //player.id = 200;
+                player.id = playerInfos[i].GetId();
+                strcpy_s(player.name, playerInfos[i].GetName());
+                player.catKind = playerInfos[i].GetKind();
+                player.day = playerInfos[i].GetDay();
+                player.money = playerInfos[i].GetMoney();
+                player.hp = playerInfos[i].GetHp();
+                player.coin1 = playerInfos[i].GetCoin1();
+                player.coin2 = playerInfos[i].GetCoin2();
+                player.coin3 = playerInfos[i].GetCoin3();
+                player.coin4 = playerInfos[i].GetCoin4();
+                player.time = playerInfos[i].GetTime();
 
+
+
+            }
+            
+        }
+    }
+    ////데이터 x
+    //for (int i = 1; i <= MAX_INFO - max; i++)
+    //{
+
+    //    rc.left = LOAD_SQUARE_X + 20;
+    //    rc.top = LOAD_SQUARE_Y * (i + max) + 50;
+    //    WCHAR text[256];
+    //    WCHAR test[256] = { 0, };
+    //    char noData[256] = "데이터가 없습니다";
+    //    MultiByteToWideChar(CP_ACP, 0, noData, strlen(noData), test, 256);
+    //    _stprintf_s<256>(text, _T("%s"), test);
+    //    font2->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
+    //        D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
+
+    //}
 
 }

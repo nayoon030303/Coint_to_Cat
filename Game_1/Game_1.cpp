@@ -22,22 +22,25 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 
-ID3DXFont* g_pFont = NULL;
+
 
 
 HWND hWnd;
-LPDIRECT3D9         g_pD3D = NULL;
-LPDIRECT3DDEVICE9   g_pd3dDevice = NULL; 
+LPDIRECT3D9         g_pD3D = nullptr;
+LPDIRECT3DDEVICE9   g_pd3dDevice = nullptr;
 POINT pt;
 
-ID3DXSprite* g_sprite = NULL;
-LPDIRECT3DTEXTURE9 g_texture;
+ID3DXSprite* g_sprite = nullptr;
+LPDIRECT3DTEXTURE9 g_texture = nullptr;
+ID3DXFont* g_pFont = nullptr;
 
 TextureManager textureManager;
 InputManager inputManager;
 StageManager stageManager;
 GameStat gameStat;
 vector<Player> playerInfos;
+Player player;
+
 
 void InitMyObject()
 {
