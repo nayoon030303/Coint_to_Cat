@@ -44,16 +44,24 @@ Player player;
 
 void InitMyObject()
 {
-    textureManager.LoadTexture( L"title.png", TITLE);
+    textureManager.LoadTexture( L"stage/title.png", TITLE);
     textureManager.LoadTexture(L"newstage.png", NEWSTAGE);
-    textureManager.LoadTexture(L"catNw_1.png", CAT_1);
-    textureManager.LoadTexture(L"catNw_2.png", CAT_2);
-    textureManager.LoadTexture(L"catNw_3.png", CAT_3);
+    /*textureManager.LoadTexture(L"cat/catNw_1.png", CAT_1);
+    textureManager.LoadTexture(L"cat/catNw_2.png", CAT_2);
+    textureManager.LoadTexture(L"cat/catNw_3.png", CAT_3);*/
+    textureManager.LoadTexture(L"newtest.png", CATN_1);
+    textureManager.LoadTexture(L"newtest.png", CATN_2);
+    textureManager.LoadTexture(L"newtest.png", CATN_3);
+    textureManager.LoadTexture(L"test.png", CATM_1);
+    textureManager.LoadTexture(L"test.png", CATM_2);
+    textureManager.LoadTexture(L"test.png", CATM_3);
     textureManager.LoadTexture(L"start_1.png", START);
     textureManager.LoadTexture(L"start_1_border.png", START_BORDER);
-    textureManager.LoadTexture(L"mainstage.png", MAINSTAGE);
+    textureManager.LoadTexture(L"stage/mainstage.png", MAINSTAGE);
     textureManager.LoadTexture(L"loadstage.png", LOADSTAGE);
     textureManager.LoadTexture(L"load_square.png", LOAD_SQUARE);
+    textureManager.LoadTexture(L"minigamestage.png", MINIGAMESTAGE);
+
 
     gameStat.Load();
     stageManager.MakeTitleStage();

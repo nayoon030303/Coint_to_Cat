@@ -4,14 +4,14 @@
 #include <string>
 #include <tchar.h>
 
-#define CAT_WIDTH 280
-#define CAT_HEIGHT 270
+#define CAT_WIDTH 300
+#define CAT_HEIGHT 300
 
 #define CAT_POSY 130
 
-#define CAT1_POSX 130
-#define CAT2_POSX CAT1_POSX+110+CAT_WIDTH
-#define CAT3_POSX CAT2_POSX+110+CAT_WIDTH
+#define CAT1_POSX 110
+#define CAT2_POSX CAT1_POSX+80+CAT_WIDTH
+#define CAT3_POSX CAT2_POSX+80+CAT_WIDTH
 
 #define START_POSX 1040
 #define START_POSY 880
@@ -154,10 +154,12 @@ void NewStage::Update()
                 player.hp = MAX_HP;
                 player.money = 50;
                 playerInfos.push_back(player);
+                gameStat.Save();
 
-                stageManager.MakeMainStage();
+
+                stageManager.MakeLoadStage();
+
               
-               gameStat.Save();
            }
         }
         start_state = START_BORDER;
@@ -305,7 +307,7 @@ void NewStage::CatRender()
 
 
     //CAT1 이미지
-    TextureElement* elementC1 = textureManager.GetTexture(CAT_1);
+    TextureElement* elementC1 = textureManager.GetTexture(CATN_1);
     elementC1->g_pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 
     srcRect;
@@ -323,7 +325,7 @@ void NewStage::CatRender()
     elementC1->g_pSprite->End();
 
     //CAT2 이미지
-    TextureElement* elementC2 = textureManager.GetTexture(CAT_2);
+    TextureElement* elementC2 = textureManager.GetTexture(CATN_2);
     elementC2->g_pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 
     srcRect;
@@ -340,7 +342,7 @@ void NewStage::CatRender()
     elementC2->g_pSprite->End();
 
     //CAT3 이미지
-    TextureElement* elementC3 = textureManager.GetTexture(CAT_3);
+    TextureElement* elementC3 = textureManager.GetTexture(CATN_3);
     elementC3->g_pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 
     srcRect;

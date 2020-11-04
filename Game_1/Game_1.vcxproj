@@ -143,12 +143,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="GameRunStage.h" />
     <ClInclude Include="GameStat.h" />
     <ClInclude Include="Game_1.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="LoadStage.h" />
     <ClInclude Include="MainStage.h" />
+    <ClInclude Include="MiniGameRunStage.h" />
+    <ClInclude Include="MiniGameStage.h" />
     <ClInclude Include="NewStage.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
@@ -160,10 +163,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cat.h" />
+    <ClCompile Include="GameRunStage.cpp" />
     <ClCompile Include="GameStat.cpp" />
     <ClCompile Include="Game_1.cpp" />
     <ClCompile Include="LoadStage.cpp" />
     <ClCompile Include="MainStage.cpp" />
+    <ClCompile Include="MiniGameRunStage.cpp" />
+    <ClCompile Include="MiniGameStage.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />

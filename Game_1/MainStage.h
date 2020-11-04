@@ -8,4 +8,7 @@ public:
 	void Render();
 	void Update();
 
+	ID3DXFont* font1;
+	ID3DXFont* font2;
+
 };

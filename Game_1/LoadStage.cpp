@@ -4,10 +4,11 @@
 
 #define TEXT_X  WINDOW_WIDTH/2-275
 
-#define LOAD_SQUARE_WIDTH 1100
-#define LOAD_SQUARE_HEIGHT 155
+#define LOAD_SQUARE_WIDTH 920
+#define LOAD_SQUARE_HEIGHT 115
 #define LOAD_SQUARE_X (WINDOW_WIDTH-LOAD_SQUARE_WIDTH)/2
-#define LOAD_SQUARE_Y 170
+#define LOAD_SQUARE_Y 270
+#define MARGIN_Y 33
 
 
 LoadStage::LoadStage()
@@ -78,12 +79,12 @@ void LoadStage::Render()
 
 
     //TEXT
-    rc;
+   /* rc;
     rc.left = TEXT_X;
     rc.top = 50;
      _stprintf_s<256>(text, _T("당신의 파일을 클릭해주세요"));
      font1->DrawText(nullptr, text, -1, &rc, DT_NOCLIP,
-          D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
+          D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));*/
 
      //캐릭터 선택 칸
      element = textureManager.GetTexture(LOAD_SQUARE);
@@ -93,9 +94,9 @@ void LoadStage::Render()
      rc.bottom = LOAD_SQUARE_HEIGHT;
      rc.right = LOAD_SQUARE_WIDTH;
      D3DXVECTOR3 pos;
-     for (int i = 1; i <=4; i++)
+     for (int i = 0; i <4; i++)
      {
-         pos = D3DXVECTOR3(LOAD_SQUARE_X, LOAD_SQUARE_Y * i, 0);
+         pos = D3DXVECTOR3(LOAD_SQUARE_X, LOAD_SQUARE_Y + (LOAD_SQUARE_HEIGHT+20) *i, 0);
          element->g_pSprite->Draw(element->g_Texture, &rc, nullptr, &pos, D3DCOLOR_XRGB(255, 255, 255));
      }
      element->g_pSprite->End();
@@ -105,7 +106,7 @@ void LoadStage::Render()
      {
          //id
          rc.left = LOAD_SQUARE_X + 20;
-         rc.top = LOAD_SQUARE_Y * (i + 1) + 50;
+         rc.top = LOAD_SQUARE_Y + (LOAD_SQUARE_HEIGHT + 20) * i +MARGIN_Y;
          WCHAR text[256];
          int id = playerInfos[i].GetId();
          _stprintf_s<256>(text, _T("0%d"), id);
@@ -114,7 +115,7 @@ void LoadStage::Render()
 
          //이름
          rc.left = LOAD_SQUARE_X+80;
-         rc.top = LOAD_SQUARE_Y * (i + 1) + 50;
+         rc.top = LOAD_SQUARE_Y + (LOAD_SQUARE_HEIGHT + 20) * i + MARGIN_Y;
          text[256];
          WCHAR name[256] = { 0, };
          MultiByteToWideChar(CP_ACP, 0, playerInfos[i].GetName(), strlen(playerInfos[i].GetName()), name, 256);
@@ -124,11 +125,12 @@ void LoadStage::Render()
 
      }
      //데이터 x
-     for (int i = 1; i <= MAX_INFO - max; i++)
+     for (int i = 0; i < MAX_INFO - max; i++)
      {
         
          rc.left = LOAD_SQUARE_X + 20;
-         rc.top = LOAD_SQUARE_Y * (i + max) + 50;
+         int startY = LOAD_SQUARE_Y + (LOAD_SQUARE_HEIGHT + 20) * max + MARGIN_Y;
+         rc.top = startY + (LOAD_SQUARE_HEIGHT + 20) * i;
          WCHAR text[256];
          WCHAR test[256] = { 0, };
          char noData[256] = "데이터가 없습니다";
@@ -147,7 +149,7 @@ void LoadStage::Update()
     for (int i = 0; i < max; i++)
     {
         if (pt.x > LOAD_SQUARE_X && pt.x<LOAD_SQUARE_X + LOAD_SQUARE_WIDTH
-            && pt.y>(LOAD_SQUARE_Y * (i + 1)) && pt.y < (LOAD_SQUARE_Y * (i + 1)) + LOAD_SQUARE_HEIGHT)
+            && pt.y>(LOAD_SQUARE_Y + (LOAD_SQUARE_HEIGHT + 20) * i) && pt.y < LOAD_SQUARE_Y + (LOAD_SQUARE_HEIGHT + 20) * i + LOAD_SQUARE_HEIGHT)
         {
             if (inputManager.prevKey[VK_LBUTTON] == 1 && inputManager.key[VK_LBUTTON] == 0)
             {
@@ -164,26 +166,27 @@ void LoadStage::Update()
                 player.coin4 = playerInfos[i].GetCoin4();
                 player.time = playerInfos[i].GetTime();
 
-
+                stageManager.MakeMainStage();
+                return ; 
 
             }
-            
         }
     }
-    ////데이터 x
-    //for (int i = 1; i <= MAX_INFO - max; i++)
-    //{
+    //new 페이지 
+    for (int i = 0; i < MAX_INFO - max; i++)
+    {
+        if (pt.x > LOAD_SQUARE_X && pt.x < LOAD_SQUARE_X + LOAD_SQUARE_WIDTH
+            && pt.y> LOAD_SQUARE_Y + (LOAD_SQUARE_HEIGHT + 20) * max + MARGIN_Y + (LOAD_SQUARE_HEIGHT + 20) * i 
+            && pt.y<LOAD_SQUARE_Y + (LOAD_SQUARE_HEIGHT + 20) * max + MARGIN_Y + (LOAD_SQUARE_HEIGHT + 20) * i + LOAD_SQUARE_HEIGHT)
+        {
+            if (inputManager.prevKey[VK_LBUTTON] == 1 && inputManager.key[VK_LBUTTON] == 0)
+            {
+                stageManager.MakeNewStage();
+                return;
 
-    //    rc.left = LOAD_SQUARE_X + 20;
-    //    rc.top = LOAD_SQUARE_Y * (i + max) + 50;
-    //    WCHAR text[256];
-    //    WCHAR test[256] = { 0, };
-    //    char noData[256] = "데이터가 없습니다";
-    //    MultiByteToWideChar(CP_ACP, 0, noData, strlen(noData), test, 256);
-    //    _stprintf_s<256>(text, _T("%s"), test);
-    //    font2->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
-    //        D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
-
-    //}
+            }
+           
+        }
+    }
 
 }

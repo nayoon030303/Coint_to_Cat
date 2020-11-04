@@ -3,6 +3,7 @@
 #include "NewStage.h"
 #include "MainStage.h"
 #include "LoadStage.h"
+#include "MiniGameStage.h"
 
 
 StageManager::StageManager()
@@ -68,7 +69,7 @@ void StageManager::MakeMiniGameChooseStage()
 		prevStage = currentStage;
 		delete currentStage;
 	}
-	NewStage* stage = new NewStage();
+	MiniGameStage* stage = new MiniGameStage();
 	currentStage = stage;
 }
 

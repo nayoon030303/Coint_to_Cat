@@ -27,11 +27,17 @@
 #define MAINSTAGE 300
 #define LOADSTAGE 400
 #define LOAD_SQUARE 500
+#define MINIGAMESTAGE 600
 
 //오브젝트
-#define CAT_1 1000
-#define CAT_2 1100
-#define CAT_3 1300
+#define CATN_1 1
+#define CATN_2 2
+#define CATN_3 3
+
+#define CATM_1 10
+#define CATM_2 20
+#define CATM_3 30
+
 
 //버튼
 #define START 2100
