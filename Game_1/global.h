@@ -28,6 +28,7 @@
 #define LOADSTAGE 400
 #define LOAD_SQUARE 500
 #define MINIGAMESTAGE 600
+#define MINIGAME_RUN_STAGE 700
 
 //오브젝트
 #define CATN_1 1
@@ -47,6 +48,9 @@
 #define MAX_HP 5
 #define MAX_INFO 4
 
+//이미지 크기
+#define CAT_WIDTH 200
+#define CAT_HEIGHT 200
 
 
 extern HWND hWnd;

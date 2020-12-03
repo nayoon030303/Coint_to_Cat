@@ -28,15 +28,24 @@
     <Filter Include="헤더 파일\Stage">
       <UniqueIdentifier>{d42faf7e-3bd5-4d24-8dd9-26b24e5d6315}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\background">
+      <UniqueIdentifier>{73ada90a-08d3-446b-9385-4912a9b505bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\player">
+      <UniqueIdentifier>{0d7ad8dc-9efc-469a-b59b-665fb6f22fd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\player">
+      <UniqueIdentifier>{2083788b-df3a-4116-a85e-b6edc8b50ddb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\background">
+      <UniqueIdentifier>{c0c57925-f50c-4caf-95e2-b307f84c2f9e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game_1.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="global.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="framework.h">
@@ -84,12 +93,18 @@
     <ClInclude Include="MiniGameRunStage.h">
       <Filter>헤더 파일\Stage</Filter>
     </ClInclude>
+    <ClInclude Include="runBackground.h">
+      <Filter>헤더 파일\background</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>헤더 파일\player</Filter>
+    </ClInclude>
+    <ClInclude Include="runPlayer.h">
+      <Filter>헤더 파일\player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game_1.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
@@ -124,6 +139,15 @@
     </ClCompile>
     <ClCompile Include="MiniGameRunStage.cpp">
       <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="runBackground.cpp">
+      <Filter>소스 파일\background</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>소스 파일\player</Filter>
+    </ClCompile>
+    <ClCompile Include="runPlayer.cpp">
+      <Filter>소스 파일\player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

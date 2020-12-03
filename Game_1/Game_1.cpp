@@ -45,7 +45,11 @@ Player player;
 void InitMyObject()
 {
     textureManager.LoadTexture( L"stage/title.png", TITLE);
-    textureManager.LoadTexture(L"newstage.png", NEWSTAGE);
+    textureManager.LoadTexture(L"stage/newstage.png", NEWSTAGE);
+    textureManager.LoadTexture(L"stage/mainstage.png", MAINSTAGE);
+    textureManager.LoadTexture(L"stage/loadstage.png", LOADSTAGE);
+    textureManager.LoadTexture(L"stage/minigamestage.png", MINIGAMESTAGE);
+    textureManager.LoadTexture(L"stage/minigamerunstage.png", MINIGAME_RUN_STAGE);
     /*textureManager.LoadTexture(L"cat/catNw_1.png", CAT_1);
     textureManager.LoadTexture(L"cat/catNw_2.png", CAT_2);
     textureManager.LoadTexture(L"cat/catNw_3.png", CAT_3);*/
@@ -57,10 +61,9 @@ void InitMyObject()
     textureManager.LoadTexture(L"test.png", CATM_3);
     textureManager.LoadTexture(L"start_1.png", START);
     textureManager.LoadTexture(L"start_1_border.png", START_BORDER);
-    textureManager.LoadTexture(L"stage/mainstage.png", MAINSTAGE);
-    textureManager.LoadTexture(L"loadstage.png", LOADSTAGE);
     textureManager.LoadTexture(L"load_square.png", LOAD_SQUARE);
-    textureManager.LoadTexture(L"minigamestage.png", MINIGAMESTAGE);
+   
+
 
 
     gameStat.Load();
@@ -103,6 +106,10 @@ void Update()
     {
         PostQuitMessage(0);
     }
+    if (inputManager.prevKey[VK_F1] == 1 && inputManager.key[VK_F1] == 0)
+    {
+        stageManager.MakeTitleStage();
+    }
 
     //마우스 커서 위치
     pt;
@@ -136,11 +143,11 @@ HRESULT InitD3D(HWND hWnd)
     d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 
     //전체화면
-    //d3dpp.Windowed = false;
-    //d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
-    //d3dpp.BackBufferFormat = D3DFMT_A8R8G8B8;
-    //d3dpp.BackBufferWidth = WINDOW_WIDTH;
-    //d3dpp.BackBufferHeight = WINDOW_HEIGHT;
+   /* d3dpp.Windowed = false;
+    d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
+    d3dpp.BackBufferFormat = D3DFMT_A8R8G8B8;
+    d3dpp.BackBufferWidth = WINDOW_WIDTH;
+    d3dpp.BackBufferHeight = WINDOW_HEIGHT;*/
 
     // Create the D3DDevice
     if (FAILED(g_pD3D->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,

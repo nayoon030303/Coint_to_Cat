@@ -4,6 +4,7 @@
 #include "MainStage.h"
 #include "LoadStage.h"
 #include "MiniGameStage.h"
+#include "MiniGameRunStage.h"
 
 
 StageManager::StageManager()
@@ -70,6 +71,17 @@ void StageManager::MakeMiniGameChooseStage()
 		delete currentStage;
 	}
 	MiniGameStage* stage = new MiniGameStage();
+	currentStage = stage;
+}
+
+void StageManager::MakeMiniGameRunStage()
+{
+	if (currentStage != nullptr)
+	{
+		prevStage = currentStage;
+		delete currentStage;
+	}
+	MiniGameRunStage* stage = new MiniGameRunStage();
 	currentStage = stage;
 }
 

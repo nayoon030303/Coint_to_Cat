@@ -13,3 +13,5 @@ public:
 	int GetMax() { return max; }
 
 };
+
+

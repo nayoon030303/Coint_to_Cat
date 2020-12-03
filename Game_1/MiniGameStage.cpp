@@ -27,7 +27,7 @@ void MiniGameStage::Update()
 	{
 		if (inputManager.prevKey[VK_LBUTTON] == 1 && inputManager.key[VK_LBUTTON] == 0)
 		{
-			int a = 0;
+			stageManager.MakeMiniGameRunStage();
 		}
 	}
 }

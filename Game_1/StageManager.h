@@ -11,7 +11,7 @@ public:
 	void MakeLoadStage();
 	void MakeMainStage();
 	void MakeMiniGameChooseStage();
-	
+	void MakeMiniGameRunStage();
 
 	//±âº»
 	void Render();

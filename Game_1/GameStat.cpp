@@ -19,6 +19,7 @@ void GameStat::Load()
 	if (fp != nullptr)
 	{
 
+
 		fscanf_s(fp, "%d ",&max);
 		
 		for (int i = 0; i <max; i++)

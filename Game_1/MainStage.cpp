@@ -6,8 +6,7 @@
 #define GAME_XR 515
 #define GAME_Y 610
 #define GAME_YR 715
-#define CAT_WIDTH 200
-#define CAT_HEIGHT 200
+
 
 MainStage::MainStage()
 {
