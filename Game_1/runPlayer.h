@@ -15,9 +15,17 @@ public:
 	bool isJump;
 	void setIsJump(float jum) { isJump = jum; }
 	float getIsJump() { return isJump; }
+	
+	float jumpHeight = 0;
+	float jumpTime = 0.0f;
+	float jumpPower;
 
+
+	float a = 0;
+	float b = 0;
 
 	RunPlayer();
 	void Update();
 	void Render();
+	void Jump();
 };

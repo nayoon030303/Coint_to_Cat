@@ -22,9 +22,6 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 
-
-
-
 HWND hWnd;
 LPDIRECT3D9         g_pD3D = nullptr;
 LPDIRECT3DDEVICE9   g_pd3dDevice = nullptr;
@@ -34,6 +31,7 @@ ID3DXSprite* g_sprite = nullptr;
 LPDIRECT3DTEXTURE9 g_texture = nullptr;
 ID3DXFont* g_pFont = nullptr;
 
+GameEntityManager gameEntityManager;
 TextureManager textureManager;
 InputManager inputManager;
 StageManager stageManager;
@@ -41,6 +39,8 @@ GameStat gameStat;
 vector<Player> playerInfos;
 Player player;
 
+DWORD prevTime = 0;
+DWORD fps = 120;
 
 void InitMyObject()
 {
@@ -62,7 +62,7 @@ void InitMyObject()
     textureManager.LoadTexture(L"start_1.png", START);
     textureManager.LoadTexture(L"start_1_border.png", START_BORDER);
     textureManager.LoadTexture(L"load_square.png", LOAD_SQUARE);
-   
+    textureManager.LoadTexture(L"enemy/runEnemy1.png", RUN_ENEMY1);
 
 
 
@@ -101,23 +101,33 @@ void Render()
 
 void Update()
 {
-    //ESC 종료
-    if (inputManager.prevKey[VK_ESCAPE]==1 && inputManager.key[VK_ESCAPE]==0)
-    {
-        PostQuitMessage(0);
-    }
-    if (inputManager.prevKey[VK_F1] == 1 && inputManager.key[VK_F1] == 0)
-    {
-        stageManager.MakeTitleStage();
-    }
+    DWORD curTime = timeGetTime();
 
-    //마우스 커서 위치
-    pt;
-    GetCursorPos(&pt);
-    ScreenToClient(hWnd, &pt);
+    DWORD deltaTime = curTime - prevTime;
 
-    stageManager.Update();
-    inputManager.Update();
+    if (deltaTime > 1000 / fps)
+    {
+        //ESC 종료
+        if (inputManager.prevKey[VK_ESCAPE] == 1 && inputManager.key[VK_ESCAPE] == 0)
+        {
+            PostQuitMessage(0);
+        }
+        if (inputManager.prevKey[VK_F1] == 1 && inputManager.key[VK_F1] == 0)
+        {
+            stageManager.MakeTitleStage();
+        }
+
+        //마우스 커서 위치
+        pt;
+        GetCursorPos(&pt);
+        ScreenToClient(hWnd, &pt);
+
+        stageManager.Update();
+        inputManager.Update();
+
+        prevTime = curTime;
+    }
+    
 }
 
 void GameLoop()
@@ -132,8 +142,6 @@ HRESULT InitD3D(HWND hWnd)
     if (NULL == (g_pD3D = Direct3DCreate9(D3D_SDK_VERSION)))
         return E_FAIL;
 
-    // Set up the structure used to create the D3DDevice. Since we are now
-    // using more complex geometry, we will create a device with a zbuffer.
     D3DPRESENT_PARAMETERS d3dpp;
     ZeroMemory(&d3dpp, sizeof(d3dpp));
     d3dpp.Windowed = TRUE;

@@ -2,15 +2,17 @@
 #include "global.h"
 
 #define JUMP_Y  400
-#define BOTTON_Y  780
+
 
 RunPlayer::RunPlayer()
 {
-	playerX = 300;
-	playerY = 780;
+	playerX = 150.0f;
+	playerY = 780.0f;
 	
 	isBottom = true;
 	isJump = false;
+	
+	jumpPower = 40.0f;
 }
 
 void RunPlayer::Render()
@@ -35,28 +37,31 @@ void RunPlayer::Render()
 void RunPlayer::Update()
 {
 
-	if (inputManager.prevKey[VK_UP] == 1 && inputManager.key[VK_UP] == 0 && isBottom) {
+	if (inputManager.key[VK_SPACE] == 1 &&  !isJump) {
 		isJump = true;
-		isBottom = false;
-
 	}
-
+	
 	if (isJump) {
-		playerY -= 20;
+		Jump();
 	}
-
-	if (!isJump && !isBottom){
-		playerY += 18;
-	}
-
-	if (playerY < JUMP_Y) {
-		isJump = false;
-		playerY = JUMP_Y;
-	}
-	if (playerY >=BOTTON_Y) {
-		isBottom = true;
-		playerY = BOTTON_Y;
-	}
-
+	playerY = 780.0f;
+	playerY += jumpHeight;
+	
 }
 
+void RunPlayer::Jump()
+{
+	//이차함수
+	
+	jumpHeight = jumpTime * jumpTime - jumpPower * jumpTime;
+
+	jumpTime += 0.8f;
+
+	if (jumpTime >= jumpPower) 
+	{
+		jumpTime = 0.f;
+		jumpHeight = 0.f;
+
+		isJump = false;
+	}
+}

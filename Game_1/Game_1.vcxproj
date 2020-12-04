@@ -142,7 +142,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="enemy.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="gameEntityManager.h" />
+    <ClInclude Include="gamePlay_director.h" />
     <ClInclude Include="GameRunStage.h" />
     <ClInclude Include="GameStat.h" />
     <ClInclude Include="Game_1.h" />
@@ -156,6 +159,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="runBackground.h" />
+    <ClInclude Include="runEnemy_1.h" />
     <ClInclude Include="runPlayer.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="StageManager.h" />
@@ -165,6 +169,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cat.h" />
+    <ClCompile Include="gameEntityManager.cpp" />
+    <ClCompile Include="gamePlay_director.cpp" />
     <ClCompile Include="GameRunStage.cpp" />
     <ClCompile Include="GameStat.cpp" />
     <ClCompile Include="Game_1.cpp" />
@@ -174,6 +180,8 @@
     <ClCompile Include="MiniGameStage.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="runBackground.cpp" />
+    <ClCompile Include="runEnemyManager.cpp" />
+    <ClCompile Include="runEnemy_1.cpp" />
     <ClCompile Include="runPlayer.cpp" />
     <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
