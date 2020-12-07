@@ -1,17 +1,14 @@
 #pragma once
 #include "Stage.h"
-#include "runStage_ui.h"
 #include "gameOver.h"
-class MiniGameDirectionStage:public Stage
+
+class MiniGameRuckSissorsPaper : public Stage
 {
 public:
 
-	MiniGameDirectionStage();
+	MiniGameRuckSissorsPaper();
 	void Render()override;
-
 	void Update() override;
 
-
-	RunStage_Ui runStage_ui;
 	GameOver gameOver;
 };

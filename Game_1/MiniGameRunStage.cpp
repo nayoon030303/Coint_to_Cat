@@ -14,7 +14,7 @@ void MiniGameRunStage::Render()
 	runPlayer.Render();
 	gameEntityManager.Render();
 	runStage_ui.Render();
-	if (runPlayer.isDead)
+	if (runPlayer.isGameOver)
 	{
 		gameOver.Render();
 	}
@@ -26,7 +26,7 @@ void MiniGameRunStage::Update()
 	runPlayer.Update();
 
 	gameEntityManager.Update();
-	if (runPlayer.isDead)
+	if (runPlayer.isGameOver)
 	{
 		gameOver.Update();
 	}

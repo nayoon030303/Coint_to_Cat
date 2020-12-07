@@ -46,6 +46,18 @@
     <Filter Include="헤더 파일\enemy">
       <UniqueIdentifier>{db083cf4-e51f-462b-8abc-91043e83a77d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Stage\minigame">
+      <UniqueIdentifier>{39d2e466-9d6e-4a3f-a12c-5f026a3444e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Stage\minigame">
+      <UniqueIdentifier>{b23390e1-20fb-44f0-a7c6-e3e4d436c93f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Stage\ui">
+      <UniqueIdentifier>{45478dfe-a1c4-4f30-846d-50d24b0b9ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Stage\ui">
+      <UniqueIdentifier>{3fe3ab51-a00d-4a03-be10-1a9526631c06}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game_1.h">
@@ -93,9 +105,6 @@
     <ClInclude Include="MiniGameStage.h">
       <Filter>헤더 파일\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="MiniGameRunStage.h">
-      <Filter>헤더 파일\Stage</Filter>
-    </ClInclude>
     <ClInclude Include="runBackground.h">
       <Filter>헤더 파일\background</Filter>
     </ClInclude>
@@ -126,20 +135,35 @@
     <ClInclude Include="math_manager.h">
       <Filter>헤더 파일\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="runStage_ui.h">
-      <Filter>헤더 파일\Stage</Filter>
-    </ClInclude>
     <ClInclude Include="runEnemy_4.h">
       <Filter>헤더 파일\enemy</Filter>
     </ClInclude>
     <ClInclude Include="gameOver.h">
       <Filter>헤더 파일\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="MiniGameDirectionStage.h">
-      <Filter>헤더 파일\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="directionPlayer.h">
+    <ClInclude Include="musicPlayer.h">
       <Filter>헤더 파일\player</Filter>
+    </ClInclude>
+    <ClInclude Include="musicBackground.h">
+      <Filter>헤더 파일\background</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGameMusicStage.h">
+      <Filter>헤더 파일\Stage\minigame</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGameRunStage.h">
+      <Filter>헤더 파일\Stage\minigame</Filter>
+    </ClInclude>
+    <ClInclude Include="musicDirections.h">
+      <Filter>헤더 파일\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="runStage_ui.h">
+      <Filter>헤더 파일\Stage\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="musicStage_ui.h">
+      <Filter>헤더 파일\Stage\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGameRuckScissorsPaper.h">
+      <Filter>헤더 파일\Stage\minigame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -165,9 +189,6 @@
       <Filter>소스 파일\Stage</Filter>
     </ClCompile>
     <ClCompile Include="MiniGameStage.cpp">
-      <Filter>소스 파일\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="MiniGameRunStage.cpp">
       <Filter>소스 파일\Stage</Filter>
     </ClCompile>
     <ClCompile Include="runBackground.cpp">
@@ -197,9 +218,6 @@
     <ClCompile Include="math_manager.cpp">
       <Filter>소스 파일\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="runStage_ui.cpp">
-      <Filter>소스 파일\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="gameEntityManager.cpp">
       <Filter>소스 파일\Manager</Filter>
     </ClCompile>
@@ -209,17 +227,35 @@
     <ClCompile Include="gameOver.cpp">
       <Filter>소스 파일\Stage</Filter>
     </ClCompile>
-    <ClCompile Include="MiniGameDirectionStage.cpp">
-      <Filter>소스 파일\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="titleStage.cpp">
       <Filter>소스 파일\Stage</Filter>
     </ClCompile>
     <ClCompile Include="newStage.cpp">
       <Filter>소스 파일\Stage</Filter>
     </ClCompile>
-    <ClCompile Include="directionPlayer.cpp">
+    <ClCompile Include="musicPlayer.cpp">
       <Filter>소스 파일\player</Filter>
+    </ClCompile>
+    <ClCompile Include="musicBackground.cpp">
+      <Filter>소스 파일\background</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGameMusicStage.cpp">
+      <Filter>소스 파일\Stage\minigame</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGameRunStage.cpp">
+      <Filter>소스 파일\Stage\minigame</Filter>
+    </ClCompile>
+    <ClCompile Include="musicDirections.cpp">
+      <Filter>소스 파일\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="runStage_ui.cpp">
+      <Filter>소스 파일\Stage\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="musicStage_ui.cpp">
+      <Filter>소스 파일\Stage\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGameRuckSissorsPapaer.cpp">
+      <Filter>소스 파일\Stage\minigame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -48,9 +48,12 @@ void InitMyObject()
     textureManager.LoadTexture(L"stage/mainstage.png", MAINSTAGE);
     textureManager.LoadTexture(L"stage/loadstage.png", LOADSTAGE);
     textureManager.LoadTexture(L"stage/minigamestage.png", MINIGAMESTAGE);
+    textureManager.LoadTexture(L"stage/minigamestage_1.png", MINIGAMESTAGE_1);
+    textureManager.LoadTexture(L"stage/minigamestage_2.png", MINIGAMESTAGE_2);
     textureManager.LoadTexture(L"stage/minigamerunstage.png", MINIGAME_RUN_STAGE);
     textureManager.LoadTexture(L"stage/result.png", RESULT);
-    textureManager.LoadTexture(L"stage/gameOver.png", GAME_OVER);
+    textureManager.LoadTexture(L"stage/gameOver.png", GAME_OVER);   
+    textureManager.LoadTexture(L"stage/minigamermusicstage.png", MINIGAME_MUSIC_STAGE);
     /*textureManager.LoadTexture(L"cat/catNw_1.png", CAT_1);
     textureManager.LoadTexture(L"cat/catNw_2.png", CAT_2);
     textureManager.LoadTexture(L"cat/catNw_3.png", CAT_3);*/
@@ -64,10 +67,12 @@ void InitMyObject()
     textureManager.LoadTexture(L"ui/start_1_border.png", START_BORDER);
     textureManager.LoadTexture(L"ui/main_1.png", MAIN_BUTTON);
     textureManager.LoadTexture(L"ui/load_square.png", LOAD_SQUARE);
+    textureManager.LoadTexture(L"ui/hp.png", HP);
     textureManager.LoadTexture(L"enemy/runEnemy1.png", RUN_ENEMY1);
     textureManager.LoadTexture(L"enemy/runEnemy2.png", RUN_ENEMY2);
     textureManager.LoadTexture(L"enemy/runEnemy3.png", RUN_ENEMY3);
     textureManager.LoadTexture(L"enemy/runEnemy4.png", RUN_ENEMY4);
+    textureManager.LoadTexture(L"musicDirections/directions.png", DIRECTIONS);
     
     gameStat.Load();
     stageManager.MakeTitleStage();
@@ -154,7 +159,7 @@ HRESULT InitD3D(HWND hWnd)
     d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 
     //전체화면
- /*   d3dpp.Windowed = false;
+  /*  d3dpp.Windowed = false;
     d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
     d3dpp.BackBufferFormat = D3DFMT_A8R8G8B8;
     d3dpp.BackBufferWidth = WINDOW_WIDTH;

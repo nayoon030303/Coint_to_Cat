@@ -7,5 +7,6 @@ public:
 	MiniGameStage() ;
 	void Render() override;
 	void Update() override;
+	int state;
 
 };

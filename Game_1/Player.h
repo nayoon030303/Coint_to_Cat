@@ -10,6 +10,7 @@ class Player
 public:
 	Player();
 
+
 	int id;
 	char name[128];
 

@@ -82,7 +82,67 @@ void GameOver::Render()
 
 	element->g_pSprite->End();
 
+	WCHAR text[256];
+	if (gameEntityManager.isRunStage)
+	{
+		score = gameEntityManager.runPlayer->getScore();
+		getCoin = score / 2;
+		//얻은 코인
+		rc.left = 200;
+		rc.top = 450;
+		rc.right = 15;
+		rc.bottom = 15;
+		_stprintf_s<256>(text, _T("얻은 코인 "));
+		font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
+			D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
+		rc.left = 500;
+		rc.top = 450;
+		rc.right = 15;
+		rc.bottom = 15;
+		_stprintf_s<256>(text, _T(":  %d"), getCoin);
+		font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
+			D3DXCOLOR(0.21f, 0.05f, 0.35f, 1.0f));
 
+		//총합
+		rc.left = 200;
+		rc.top = 650;
+		rc.right = 15;
+		rc.bottom = 15;
+		_stprintf_s<256>(text, _T("총합 코인"));
+		font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
+			D3DXCOLOR(0.21f, 0.05f, 0.35f, 1.0f));
+
+		int money = player->GetMoney();
+
+		rc.left = 500;
+		rc.top = 650;
+		rc.right = 15;
+		rc.bottom = 15;
+		_stprintf_s<256>(text, _T(":  %d"), money);
+		font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
+			D3DXCOLOR(0.21f, 0.05f, 0.35f, 1.0f));
+
+		rc.left = 700;
+		rc.top = 650;
+		rc.right = 15;
+		rc.bottom = 15;
+		_stprintf_s<256>(text, _T(" +  %d = %d "), getCoin, money + getCoin);
+		font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
+			D3DXCOLOR(0.21f, 0.05f, 0.35f, 1.0f));
+	}
+	else if (gameEntityManager.isMusicStage)
+	{
+		score = gameEntityManager.musicPlayer->getScore();
+
+		//완주를 실패했습니다 
+		rc.left = 200;
+		rc.top = 700;
+		rc.right = 15;
+		rc.bottom = 15;
+		_stprintf_s<256>(text, _T("완주를 실패했습니다."));
+		font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
+			D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));		
+	}
 
 	//점수
 	rc;
@@ -90,7 +150,7 @@ void GameOver::Render()
 	rc.top = 350;
 	rc.right = 15;
 	rc.bottom = 15;
-	WCHAR text[256];
+	
 	_stprintf_s<256>(text, _T("점수"));
 	font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
 		D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
@@ -99,57 +159,13 @@ void GameOver::Render()
 	rc.top = 350;
 	rc.right = 15;
 	rc.bottom = 15;
-	score = gameEntityManager.runPlayer->getScore();
 	_stprintf_s<256>(text, _T(":  %d"), score);
 	font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
 		D3DXCOLOR(0.21f, 0.05f, 0.35f, 1.0f));
 
 
 
-	//얻은 코인
-	rc.left = 200;
-	rc.top = 450;
-	rc.right = 15;
-	rc.bottom = 15;
-	_stprintf_s<256>(text, _T("얻은 코인 "));
-	font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
-		D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
-	rc.left = 500;
-	rc.top = 450;
-	rc.right = 15;
-	rc.bottom = 15;
-	_stprintf_s<256>(text, _T(":  %d"), score*2);
-	font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
-		D3DXCOLOR(0.21f, 0.05f, 0.35f, 1.0f));
-
-
-
-	//총합
-	rc.left = 200;
-	rc.top = 650;
-	rc.right = 15;
-	rc.bottom = 15;
-	_stprintf_s<256>(text, _T("총합 코인"));
-	font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
-		D3DXCOLOR(0.21f, 0.05f, 0.35f, 1.0f));
-
-	int money = player->GetMoney();
-
-	rc.left = 500;
-	rc.top = 650;
-	rc.right = 15;
-	rc.bottom = 15;
-	_stprintf_s<256>(text, _T(":  %d"), money);
-	font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
-		D3DXCOLOR(0.21f, 0.05f, 0.35f, 1.0f));
-
-	rc.left = 700;
-	rc.top = 650;
-	rc.right = 15;
-	rc.bottom = 15;
-	_stprintf_s<256>(text, _T(" +  %d = %d "), score * 2, money+(score*2));
-	font1->DrawText(NULL, text, -1, &rc, DT_NOCLIP,
-		D3DXCOLOR(0.21f, 0.05f, 0.35f, 1.0f));
+	
 	
 	
 	
@@ -164,7 +180,7 @@ void GameOver::Update()
 		if (inputManager.prevKey[VK_LBUTTON] == 1 && inputManager.key[VK_LBUTTON] == 0)
 		{
 		
-			player->SetMoney(player->GetMoney()+ score*2);
+			player->SetMoney(player->GetMoney()+ getCoin);
 			stageManager.MakeMainStage();
 		}
 	}

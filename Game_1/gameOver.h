@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Stage.h"
 #include <d3dx9.h>
 
@@ -11,5 +13,6 @@ public:
 	ID3DXFont* font2;
 	int classType;
 	int score;
+	int getCoin;
 
 };

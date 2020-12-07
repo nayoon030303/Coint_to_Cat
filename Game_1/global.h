@@ -27,7 +27,7 @@
 #define MINI_GAME_RUN_STAGE 2003
 #define MAIN_STAGE 2004
 #define LOAD_STAGE 2005
-#define MINI_GAME_DIRECTION_STAGE 2006
+#define MINI_GAME_MUSIC_STAGE 2006
 
 
 //이미지 넘버//
@@ -42,6 +42,9 @@
 #define MINIGAME_RUN_STAGE 700
 #define RESULT 800
 #define GAME_OVER 900
+#define MINIGAME_MUSIC_STAGE 1000
+#define MINIGAMESTAGE_1 1100
+#define MINIGAMESTAGE_2 1200
 
 //오브젝트
 #define CATN_1 1
@@ -55,6 +58,9 @@
 #define RUN_ENEMY2 50
 #define RUN_ENEMY3 60
 #define RUN_ENEMY4 70
+
+#define DIRECTIONS 80
+#define HP 90
 
 //버튼
 #define START 2100
@@ -84,6 +90,8 @@
 //위치
 #define MINIGAME_BUTTON_X 980
 #define MINIGAME_BUTTON_Y 780
+
+
 
 extern HWND hWnd;
 extern LPDIRECT3D9         g_pD3D ;

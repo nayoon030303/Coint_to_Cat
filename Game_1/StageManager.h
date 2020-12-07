@@ -12,7 +12,7 @@ public:
 	void MakeMainStage();
 	void MakeMiniGameChooseStage();
 	void MakeMiniGameRunStage();
-	void MakeMiniGameDirectionStage();
+	void MakeMiniGameMusicStage();
 	//±âº»
 	void Render();
 	void Update();

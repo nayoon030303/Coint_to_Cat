@@ -40,20 +40,3 @@ void RunEnemy_3::Update()
 		posX -= speed;
 	}
 }
-
-void RunEnemy_3::setPosX(float x) { posX = x; }
-float RunEnemy_3::getPosX() { return posX; }
-void RunEnemy_3::setPosY(float y) { posY = y; }
-float RunEnemy_3::getPosY() { return posY; }
-void RunEnemy_3::setAlive(bool dead) { isDead = dead; }
-bool RunEnemy_3::getAlive() { return isDead; }
-void RunEnemy_3::setRadious(float radious) { radious = radious; }
-bool RunEnemy_3::getRadious() { return radious; }
-void RunEnemy_3::setCalssType(int type) { classType = type; };
-bool RunEnemy_3::getClassType() { return classType; }
-void RunEnemy_3::setWidth(int width) { width = width; };
-int RunEnemy_3::getWidth() { return width; }
-void RunEnemy_3::setHeight(int h) { height = h; };
-int RunEnemy_3::getHeight() { return height; }
-void RunEnemy_3::setSpeed(int sp) { speed = sp; }
-int RunEnemy_3::getSpeed() { return speed; }

@@ -3,6 +3,7 @@
 
 MiniGameStage::MiniGameStage()
 {
+	state = MINIGAMESTAGE;
 	classType = MINI_GAME_CHOOSE;
 }
 
@@ -10,7 +11,7 @@ void MiniGameStage::Render()
 {
 	RECT rc;
 
-	TextureElement* element = textureManager.GetTexture(MINIGAMESTAGE);
+	TextureElement* element = textureManager.GetTexture(state);
 	element->g_pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	rc.left = 0;
 	rc.top = 0;
@@ -23,11 +24,25 @@ void MiniGameStage::Render()
 
 void MiniGameStage::Update()
 {
-	if (pt.x > 200 && pt.x < 400 && pt.y > 200 && pt.y < 400)
+	state = MINIGAMESTAGE;
+
+	//´Þ¸®±â
+	if (pt.x > 600 && pt.x < 650 && pt.y > 265 && pt.y < 300)
 	{
+		state = MINIGAMESTAGE_1;
 		if (inputManager.prevKey[VK_LBUTTON] == 1 && inputManager.key[VK_LBUTTON] == 0)
 		{
 			stageManager.MakeMiniGameRunStage();
+		}
+	}
+
+	//À½¾Ç
+	if (pt.x > 980 && pt.x < 1030 && pt.y > 465 && pt.y < 515)
+	{
+		state = MINIGAMESTAGE_2;
+		if (inputManager.prevKey[VK_LBUTTON] == 1 && inputManager.key[VK_LBUTTON] == 0)
+		{
+			stageManager.MakeMiniGameMusicStage();
 		}
 	}
 }

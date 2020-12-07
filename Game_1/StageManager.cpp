@@ -6,7 +6,7 @@
 #include "LoadStage.h"
 #include "MiniGameStage.h"
 #include "MiniGameRunStage.h"
-#include "MiniGameDirectionStage.h"
+#include "MiniGameMusicStage.h"
 
 
 StageManager::StageManager()
@@ -109,7 +109,7 @@ void StageManager::MakeMiniGameRunStage()
 	currentStage = stage;
 }
 
-void StageManager::MakeMiniGameDirectionStage()
+void StageManager::MakeMiniGameMusicStage()
 {
 
 	if (currentStage != nullptr)
@@ -119,10 +119,10 @@ void StageManager::MakeMiniGameDirectionStage()
 		if (prevStage->classType == MINI_GAME_CHOOSE)
 		{
 			gameEntityManager.ClearAll();
-			gameEntityManager.setIsDirectionStage(true);
+			gameEntityManager.setIsMusicStage(true);
 		}
 		delete currentStage;
 	}
-	MiniGameDirectionStage* stage = new MiniGameDirectionStage();
+	MiniGameMusicStage* stage = new MiniGameMusicStage();
 	currentStage = stage;
 }

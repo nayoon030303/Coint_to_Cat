@@ -42,19 +42,3 @@ void RunEnemy_1::Update()
 	
 }
 
-void RunEnemy_1::setPosX(float x) { posX = x; }
-float RunEnemy_1::getPosX() { return posX; }
-void RunEnemy_1::setPosY(float y) { posY = y; }
-float RunEnemy_1::getPosY() { return posY; }
-void RunEnemy_1::setAlive(bool dead) { isDead = dead; }
-bool RunEnemy_1::getAlive() { return isDead; }
-void RunEnemy_1::setRadious(float r) { radious = r; }
-bool RunEnemy_1::getRadious() { return radious; }
-void RunEnemy_1::setCalssType(int type) {classType = type;};
-bool RunEnemy_1::getClassType() { return classType; }
-void RunEnemy_1::setWidth(int w) { width = w; };
-int RunEnemy_1::getWidth() { return width; }
-void RunEnemy_1::setHeight(int h) { height = h; };
-int RunEnemy_1::getHeight() { return height; }
-void RunEnemy_1::setSpeed(int sp) { speed = sp; }
-int RunEnemy_1::getSpeed() { return speed; }

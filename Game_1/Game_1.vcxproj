@@ -142,7 +142,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="directionPlayer.h" />
+    <ClInclude Include="MiniGameRuckScissorsPaper.h" />
+    <ClInclude Include="musicBackground.h" />
+    <ClInclude Include="musicDirections.h" />
+    <ClInclude Include="musicPlayer.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="gameEntityManager.h" />
@@ -155,9 +158,10 @@
     <ClInclude Include="LoadStage.h" />
     <ClInclude Include="MainStage.h" />
     <ClInclude Include="math_manager.h" />
-    <ClInclude Include="MiniGameDirectionStage.h" />
+    <ClInclude Include="MiniGameMusicStage.h" />
     <ClInclude Include="MiniGameRunStage.h" />
     <ClInclude Include="MiniGameStage.h" />
+    <ClInclude Include="musicStage_ui.h" />
     <ClInclude Include="NewStage.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
@@ -176,7 +180,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cat.h" />
-    <ClCompile Include="directionPlayer.cpp" />
+    <ClCompile Include="MiniGameRuckSissorsPapaer.cpp" />
+    <ClCompile Include="musicBackground.cpp" />
+    <ClCompile Include="musicDirections.cpp" />
+    <ClCompile Include="musicPlayer.cpp" />
     <ClCompile Include="gameEntityManager.cpp" />
     <ClCompile Include="gameOver.cpp" />
     <ClCompile Include="gamePlay_director.cpp" />
@@ -185,9 +192,10 @@
     <ClCompile Include="LoadStage.cpp" />
     <ClCompile Include="MainStage.cpp" />
     <ClCompile Include="math_manager.cpp" />
-    <ClCompile Include="MiniGameDirectionStage.cpp" />
+    <ClCompile Include="MiniGameMusicStage.cpp" />
     <ClCompile Include="MiniGameRunStage.cpp" />
     <ClCompile Include="MiniGameStage.cpp" />
+    <ClCompile Include="musicStage_ui.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="runBackground.cpp" />
     <ClCompile Include="runEnemyManager.cpp" />

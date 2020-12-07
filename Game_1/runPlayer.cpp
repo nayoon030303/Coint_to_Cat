@@ -16,6 +16,7 @@ RunPlayer::RunPlayer()
 	isHit = false;
 	width = CAT_WIDTH;
 	height = CAT_HEIGHT;
+	isGameOver = false;
 }
 
 void RunPlayer::Render()
@@ -88,6 +89,14 @@ void RunPlayer::Update()
 		}
 		//playerY = ;
 		playerY = BOTTOM_Y - height + jumpHeight;
+	}
+	if (isDead)
+	{
+		time++;
+		if (time > 20)
+		{
+			isGameOver = true;
+		}
 	}
 	
 }
