@@ -3,7 +3,7 @@
 
 MiniGameStage::MiniGameStage()
 {
-
+	classType = MINI_GAME_CHOOSE;
 }
 
 void MiniGameStage::Render()

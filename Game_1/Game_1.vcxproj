@@ -142,17 +142,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="directionPlayer.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="gameEntityManager.h" />
+    <ClInclude Include="gameOver.h" />
     <ClInclude Include="gamePlay_director.h" />
-    <ClInclude Include="GameRunStage.h" />
     <ClInclude Include="GameStat.h" />
     <ClInclude Include="Game_1.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="LoadStage.h" />
     <ClInclude Include="MainStage.h" />
+    <ClInclude Include="math_manager.h" />
+    <ClInclude Include="MiniGameDirectionStage.h" />
     <ClInclude Include="MiniGameRunStage.h" />
     <ClInclude Include="MiniGameStage.h" />
     <ClInclude Include="NewStage.h" />
@@ -160,7 +163,11 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="runBackground.h" />
     <ClInclude Include="runEnemy_1.h" />
+    <ClInclude Include="runEnemy_2.h" />
+    <ClInclude Include="runEnemy_3.h" />
+    <ClInclude Include="runEnemy_4.h" />
     <ClInclude Include="runPlayer.h" />
+    <ClInclude Include="runStage_ui.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="StageManager.h" />
     <ClInclude Include="targetver.h" />
@@ -169,24 +176,31 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cat.h" />
+    <ClCompile Include="directionPlayer.cpp" />
     <ClCompile Include="gameEntityManager.cpp" />
+    <ClCompile Include="gameOver.cpp" />
     <ClCompile Include="gamePlay_director.cpp" />
-    <ClCompile Include="GameRunStage.cpp" />
     <ClCompile Include="GameStat.cpp" />
     <ClCompile Include="Game_1.cpp" />
     <ClCompile Include="LoadStage.cpp" />
     <ClCompile Include="MainStage.cpp" />
+    <ClCompile Include="math_manager.cpp" />
+    <ClCompile Include="MiniGameDirectionStage.cpp" />
     <ClCompile Include="MiniGameRunStage.cpp" />
     <ClCompile Include="MiniGameStage.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="runBackground.cpp" />
     <ClCompile Include="runEnemyManager.cpp" />
     <ClCompile Include="runEnemy_1.cpp" />
+    <ClCompile Include="runEnemy_2.cpp" />
+    <ClCompile Include="runEnemy_3.cpp" />
+    <ClCompile Include="runEnemy_4.cpp" />
     <ClCompile Include="runPlayer.cpp" />
+    <ClCompile Include="runStage_ui.cpp" />
     <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="TitleStage.cpp" />
-    <ClCompile Include="NewStage.cpp" />
+    <ClCompile Include="titleStage.cpp" />
+    <ClCompile Include="newStage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game_1.rc" />

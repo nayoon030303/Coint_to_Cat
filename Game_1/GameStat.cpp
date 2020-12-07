@@ -8,6 +8,7 @@
 GameStat::GameStat()
 {
 	max = -1;
+	isFile = true;
 }
 
 void GameStat::Load()
@@ -18,7 +19,7 @@ void GameStat::Load()
 
 	if (fp != nullptr)
 	{
-
+		
 
 		fscanf_s(fp, "%d ",&max);
 		
@@ -26,10 +27,10 @@ void GameStat::Load()
 		{
 		
 			fscanf_s(fp, "%d %s %d %d %d %d %d %d %d %d %d",
-				&player.id, &player.name, 128, &player.catKind, &player.day, &player.money, &player.hp,
-				&player.coin1, &player.coin2, &player.coin3, &player.coin4, &player.time);
+				&GameStat_player.id, &GameStat_player.name, 128, &GameStat_player.catKind, &GameStat_player.day, &GameStat_player.money, &GameStat_player.hp,
+				&GameStat_player.coin1, &GameStat_player.coin2, &GameStat_player.coin3, &GameStat_player.coin4, &GameStat_player.time);
 
-			playerInfos.push_back(player);
+			playerInfos.push_back(GameStat_player);
 			
 
 		}
@@ -37,7 +38,10 @@ void GameStat::Load()
 	}
 	else
 	{
+		isFile = false;
+		max = 0;
 		Save();
+		isFile = true;
 	}
 
 }
@@ -47,11 +51,27 @@ void GameStat::Save()
 	FILE* fp = nullptr;
 	fopen_s(&fp, "Gamedata.dat", "wt");
 
-	max += 1;
+	
+	if (isFile &&player->GetId() == -1)
+		max += 1;
 	fprintf(fp, "%d \n", max);
+
 
 	for (int i = 0; i < playerInfos.size(); i++)
 	{
+		if (playerInfos[i].id == player->GetId())
+		{
+			playerInfos[i].day = player->GetDay();
+			playerInfos[i].money = player->GetMoney();
+			playerInfos[i].hp = player->GetHp();
+			playerInfos[i].coin1 = player->GetCoin1();
+			playerInfos[i].coin2 = player->GetCoin1();
+			playerInfos[i].coin3 = player->GetCoin3();
+			playerInfos[i].coin4 = player->GetCoin4();
+			playerInfos[i].time = player->GetTime();
+		}
+
+		
 		fprintf(fp, "%d %s %d %d %d %d %d %d %d %d %d\n",
 			playerInfos[i].id,
 			playerInfos[i].name,

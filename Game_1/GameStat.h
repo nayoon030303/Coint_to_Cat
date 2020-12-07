@@ -8,8 +8,9 @@ public:
 	void Load();
 	void Save();
 
+	bool isFile;
 	int max;
-	Player player;
+	Player GameStat_player;
 	int GetMax() { return max; }
 
 };

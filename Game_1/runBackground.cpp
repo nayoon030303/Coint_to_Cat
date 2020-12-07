@@ -45,5 +45,8 @@ void RunBackGround::Render()
 
 void RunBackGround::Update()
 {
-	screenX -= 10.0f;
+	if (!gameEntityManager.runPlayer->getIsDead()) {
+		screenX -= 10.0f;
+	}
+
 }

@@ -13,6 +13,8 @@
 
 LoadStage::LoadStage()
 {
+    classType = LOAD_STAGE;
+
     max = gameStat.GetMax();
 
    //폰트1 생성
@@ -154,17 +156,17 @@ void LoadStage::Update()
             if (inputManager.prevKey[VK_LBUTTON] == 1 && inputManager.key[VK_LBUTTON] == 0)
             {
                 //player.id = 200;
-                player.id = playerInfos[i].GetId();
-                strcpy_s(player.name, playerInfos[i].GetName());
-                player.catKind = playerInfos[i].GetKind();
-                player.day = playerInfos[i].GetDay();
-                player.money = playerInfos[i].GetMoney();
-                player.hp = playerInfos[i].GetHp();
-                player.coin1 = playerInfos[i].GetCoin1();
-                player.coin2 = playerInfos[i].GetCoin2();
-                player.coin3 = playerInfos[i].GetCoin3();
-                player.coin4 = playerInfos[i].GetCoin4();
-                player.time = playerInfos[i].GetTime();
+                player->id = playerInfos[i].GetId();
+                strcpy_s(player->name, playerInfos[i].GetName());
+                player->catKind = playerInfos[i].GetKind();
+                player->day = playerInfos[i].GetDay();
+                player->money = playerInfos[i].GetMoney();
+                player->hp = playerInfos[i].GetHp();
+                player->coin1 = playerInfos[i].GetCoin1();
+                player->coin2 = playerInfos[i].GetCoin2();
+                player->coin3 = playerInfos[i].GetCoin3();
+                player->coin4 = playerInfos[i].GetCoin4();
+                player->time = playerInfos[i].GetTime();
 
                 stageManager.MakeMainStage();
                 return ; 

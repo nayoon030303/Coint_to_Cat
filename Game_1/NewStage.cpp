@@ -39,6 +39,9 @@ NewStage::NewStage()
     isOn_2 = false;
     isOn_3 = false;
    
+    classType = NEW_STAGE;
+
+
     //start ป๓ลย
     start_state = START;
 

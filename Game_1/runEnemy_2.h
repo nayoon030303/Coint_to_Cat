@@ -1,9 +1,9 @@
 #pragma once
 #include "enemy.h"
-class RunEnemy_1 : public Enemy
+class RunEnemy_2 : public Enemy
 {
 public:
-	RunEnemy_1();
+	RunEnemy_2();
 	void Update()override;
 	void Render()override;
 
@@ -21,7 +21,6 @@ public:
 
 	void setCalssType(int type)override;
 	bool getClassType()override;
-
 
 	void setWidth(int width) override;
 	int getWidth() override;

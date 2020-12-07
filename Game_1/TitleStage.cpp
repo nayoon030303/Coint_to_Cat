@@ -13,7 +13,7 @@
 
 TitleStage::TitleStage()
 {
-
+    classType = TITLE_STAGE;
 }
 
 void TitleStage::Render()

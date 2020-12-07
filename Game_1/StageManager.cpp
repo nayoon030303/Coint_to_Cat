@@ -1,10 +1,12 @@
 #include "StageManager.h"
+#include "global.h"
 #include "TitleStage.h"
 #include "NewStage.h"
 #include "MainStage.h"
 #include "LoadStage.h"
 #include "MiniGameStage.h"
 #include "MiniGameRunStage.h"
+#include "MiniGameDirectionStage.h"
 
 
 StageManager::StageManager()
@@ -25,6 +27,7 @@ void StageManager::Update()
 	if (currentStage != nullptr)
 	{
 		currentStage->Update();
+
 	}
 }
 
@@ -74,16 +77,6 @@ void StageManager::MakeMiniGameChooseStage()
 	currentStage = stage;
 }
 
-void StageManager::MakeMiniGameRunStage()
-{
-	if (currentStage != nullptr)
-	{
-		prevStage = currentStage;
-		delete currentStage;
-	}
-	MiniGameRunStage* stage = new MiniGameRunStage();
-	currentStage = stage;
-}
 
 void StageManager::MakeMainStage()
 {
@@ -92,6 +85,44 @@ void StageManager::MakeMainStage()
 		prevStage = currentStage;
 		delete currentStage;
 	}
+	if(prevStage->classType != LOAD_STAGE)
+		gameStat.Save();
 	MainStage* stage = new MainStage();
+	currentStage = stage;
+}
+
+void StageManager::MakeMiniGameRunStage()
+{
+
+	if (currentStage != nullptr)
+	{
+		prevStage = currentStage;
+
+		if (prevStage->classType == MINI_GAME_CHOOSE)
+		{
+			gameEntityManager.ClearAll();
+			gameEntityManager.setIsRunStage(true);
+		}
+		delete currentStage;
+	}
+	MiniGameRunStage* stage = new MiniGameRunStage();
+	currentStage = stage;
+}
+
+void StageManager::MakeMiniGameDirectionStage()
+{
+
+	if (currentStage != nullptr)
+	{
+		prevStage = currentStage;
+
+		if (prevStage->classType == MINI_GAME_CHOOSE)
+		{
+			gameEntityManager.ClearAll();
+			gameEntityManager.setIsDirectionStage(true);
+		}
+		delete currentStage;
+	}
+	MiniGameDirectionStage* stage = new MiniGameDirectionStage();
 	currentStage = stage;
 }

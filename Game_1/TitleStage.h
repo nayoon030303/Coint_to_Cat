@@ -8,4 +8,5 @@ public:
 	TitleStage();
 	void Render()override;
 	void Update()override;
+
 };

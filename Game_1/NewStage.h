@@ -11,14 +11,14 @@ class NewStage :public Stage
 {
 public:
 	NewStage();
-	void Render();
-	void Update();
+	void Render()override;
+	void Update() override;
 
 	void CatRender();
 	
 	void OnOff();
 	
-
+	int classType;
 	int cat1_state;
 	int cat2_state;
 	int cat3_state;

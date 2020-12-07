@@ -93,9 +93,6 @@
     <ClInclude Include="MiniGameStage.h">
       <Filter>헤더 파일\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="GameRunStage.h">
-      <Filter>헤더 파일\Stage</Filter>
-    </ClInclude>
     <ClInclude Include="MiniGameRunStage.h">
       <Filter>헤더 파일\Stage</Filter>
     </ClInclude>
@@ -120,6 +117,30 @@
     <ClInclude Include="gamePlay_director.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="runEnemy_2.h">
+      <Filter>헤더 파일\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="runEnemy_3.h">
+      <Filter>헤더 파일\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="math_manager.h">
+      <Filter>헤더 파일\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="runStage_ui.h">
+      <Filter>헤더 파일\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="runEnemy_4.h">
+      <Filter>헤더 파일\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="gameOver.h">
+      <Filter>헤더 파일\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGameDirectionStage.h">
+      <Filter>헤더 파일\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="directionPlayer.h">
+      <Filter>헤더 파일\player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game_1.cpp">
@@ -130,12 +151,6 @@
     </ClCompile>
     <ClCompile Include="StageManager.cpp">
       <Filter>소스 파일\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleStage.cpp">
-      <Filter>소스 파일\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="NewStage.cpp">
-      <Filter>소스 파일\Stage</Filter>
     </ClCompile>
     <ClCompile Include="Cat.h">
       <Filter>헤더 파일</Filter>
@@ -150,9 +165,6 @@
       <Filter>소스 파일\Stage</Filter>
     </ClCompile>
     <ClCompile Include="MiniGameStage.cpp">
-      <Filter>소스 파일\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="GameRunStage.cpp">
       <Filter>소스 파일\Stage</Filter>
     </ClCompile>
     <ClCompile Include="MiniGameRunStage.cpp">
@@ -173,11 +185,41 @@
     <ClCompile Include="runEnemy_1.cpp">
       <Filter>소스 파일\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="gameEntityManager.cpp">
-      <Filter>소스 파일\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="gamePlay_director.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="runEnemy_2.cpp">
+      <Filter>소스 파일\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="runEnemy_3.cpp">
+      <Filter>소스 파일\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="math_manager.cpp">
+      <Filter>소스 파일\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="runStage_ui.cpp">
+      <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="gameEntityManager.cpp">
+      <Filter>소스 파일\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="runEnemy_4.cpp">
+      <Filter>소스 파일\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="gameOver.cpp">
+      <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGameDirectionStage.cpp">
+      <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="titleStage.cpp">
+      <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="newStage.cpp">
+      <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="directionPlayer.cpp">
+      <Filter>소스 파일\player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

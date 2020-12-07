@@ -10,6 +10,8 @@
 
 MainStage::MainStage()
 {
+    classType = MAIN_STAGE;
+
     //폰트1 생성
     HDC hDC = GetDC(NULL);
     int nLogPixelsY = GetDeviceCaps(hDC, LOGPIXELSY);
@@ -49,7 +51,7 @@ void MainStage::Render()
     element->g_pSprite->End();
 
     //고양이
-    element = textureManager.GetTexture(player.GetKind()*10);
+    element = textureManager.GetTexture(player->GetKind()*10);
     element->g_pSprite->Begin(D3DXSPRITE_ALPHABLEND);
     srcRect.left = 0;
     srcRect.top = 0;
@@ -63,32 +65,32 @@ void MainStage::Render()
     //name
     srcRect.left = 0;
     srcRect.top = 0;
-    MultiByteToWideChar(CP_ACP, 0, player.GetName(), strlen(player.GetName()), name, 256);
+    MultiByteToWideChar(CP_ACP, 0, player->GetName(), strlen(player->GetName()), name, 256);
     _stprintf_s<256>(text, _T("이름:%s"), name);
     font1->DrawText(NULL, text, -1, &srcRect, DT_NOCLIP,
         D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
 
     //day
-    srcRect.left = 100;
+    srcRect.left = 200;
     srcRect.top = 0;
     text[256];
-    _stprintf_s<256>(text, _T("day: %d"), player.GetDay());
+    _stprintf_s<256>(text, _T("day: %d"), player->GetDay());
     font1->DrawText(NULL, text, -1, &srcRect, DT_NOCLIP,
         D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
 
     //money
-    srcRect.left = 200;
+    srcRect.left = 400;
     srcRect.top = 0;
     text[256];
-    _stprintf_s<256>(text, _T("coin: %d"), player.GetMoney());
+    _stprintf_s<256>(text, _T("coin: %d"), player->GetMoney());
     font1->DrawText(NULL, text, -1, &srcRect, DT_NOCLIP,
         D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
 
     //hp
-    srcRect.left = 400;
+    srcRect.left = 600;
     srcRect.top = 0;
     text[256];
-    _stprintf_s<256>(text, _T("hp:%d"), player.GetHp());
+    _stprintf_s<256>(text, _T("hp:%d"), player->GetHp());
     font1->DrawText(NULL, text, -1, &srcRect, DT_NOCLIP,
         D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
 
